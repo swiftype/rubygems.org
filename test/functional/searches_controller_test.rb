@@ -17,6 +17,7 @@ class SearchesControllerTest < ActionController::TestCase
       @sinatra = create(:rubygem, :name => "sinatra")
       assert_nil @sinatra.versions.most_recent
       assert @sinatra.reload.versions.count.zero?
+      stub(SwiftypeSearch).search("sinatra") { Rubygem.search("sinatra") }
       get :show, :query => "sinatra"
     end
 
@@ -32,6 +33,7 @@ class SearchesControllerTest < ActionController::TestCase
       create(:version, :rubygem => @sinatra)
       create(:version, :rubygem => @sinatra_redux)
       create(:version, :rubygem => @brando)
+      stub(SwiftypeSearch).search("sinatra") { Rubygem.search("sinatra") }
       get :show, :query => "sinatra"
     end
 
@@ -54,6 +56,7 @@ class SearchesControllerTest < ActionController::TestCase
     setup do
       @sinatra = create(:rubygem, :name => "sinatra")
       create(:version, :rubygem => @sinatra)
+      stub(SwiftypeSearch).search("sinatra") { Rubygem.search("sinatra") }
       get :show, :query => "sinatra"
     end
 

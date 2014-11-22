@@ -31,6 +31,7 @@ gem 'will_paginate'
 gem 'xml-simple'
 gem 'yajl-ruby', require: 'yajl'
 gem 'autoprefixer-rails'
+gem 'swiftype'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

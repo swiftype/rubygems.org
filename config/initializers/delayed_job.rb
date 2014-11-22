@@ -7,5 +7,6 @@ end
 PRIORITIES = {
   :push     => 1,
   :download => 2,
-  :web_hook => 3
+  :web_hook => 3,
+  :swiftype_index => 4
 }
